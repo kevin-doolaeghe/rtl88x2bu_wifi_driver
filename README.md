@@ -1,2 +1,35 @@
-# rtl88x2bu_wifi_driver
-TP-Link Archer T3U driver for Linux
+# TP-Link Archer T3U driver for Linux
+
+## Sources
+
+* [Realtek Driver](https://github.com/cilynx/rtl88x2bu)
+* [](https://forums.linuxmint.com/viewtopic.php?t=306556)
+* [](https://static.tp-link.com/2018/201805/20180508/Installation%20Guide%20for%20Linux.pdf)
+
+## Installation
+
+* Install required packages :
+```
+sudo apt install git dkms build-essential bc
+```
+
+* Clone the driver repository :
+```
+git clone https://github.com/cilynx/rtl88x2bu.git
+cd rtl88x2bu
+```
+
+* Install the driver :
+```
+VER=$(sed -n 's/\PACKAGE_VERSION="\(.*\)"/\1/p' dkms.conf)
+sudo rsync -rvhP ./ /usr/src/rtl88x2bu-${VER}
+sudo dkms add -m rtl88x2bu -v ${VER}
+sudo dkms build -m rtl88x2bu -v ${VER}
+sudo dkms install -m rtl88x2bu -v ${VER}
+sudo modprobe 88x2bu
+```
+
+* Check if the wireless adapter is correctly recognized :
+```
+iwconfig
+```
