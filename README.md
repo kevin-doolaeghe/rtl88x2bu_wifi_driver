@@ -10,7 +10,7 @@
 
 * Install required packages :
 ```
-sudo apt install git dkms build-essential bc
+sudo apt install git dkms rsync build-essential bc
 ```
 
 * Clone the driver repository :
