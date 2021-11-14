@@ -5,6 +5,7 @@
 * [Git Repository - Realtek Network Adapter Card Driver](https://github.com/cilynx/rtl88x2bu)
 * [Installation Example](https://forums.linuxmint.com/viewtopic.php?t=306556)
 * [Official TP-Link Installation Guide](https://static.tp-link.com/2018/201805/20180508/Installation%20Guide%20for%20Linux.pdf)
+* [Linux Kernel - Modules Tutorial](https://doc.ubuntu-fr.org/tutoriel/tout_savoir_sur_les_modules_linux)
 
 ## Installation
 
