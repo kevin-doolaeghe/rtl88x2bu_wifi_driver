@@ -6,8 +6,9 @@
 * [Installation Example](https://forums.linuxmint.com/viewtopic.php?t=306556)
 * [Official TP-Link Installation Guide](https://static.tp-link.com/2018/201805/20180508/Installation%20Guide%20for%20Linux.pdf)
 * [Linux Kernel - Modules Tutorial](https://doc.ubuntu-fr.org/tutoriel/tout_savoir_sur_les_modules_linux)
+* [rtl8188eus driver with monitor mode and packet injection](https://github.com/aircrack-ng/rtl8188eus)
 
-## Installation
+## Installation (cilynx/rtl88x2bu repository)
 
 * Install required packages :
 ```
@@ -33,4 +34,57 @@ sudo modprobe 88x2bu
 * Check if the wireless adapter is correctly recognized :
 ```
 iwconfig
+```
+
+## Installation (aircrack-ng/rtl8188eus repository)
+
+* Clone the driver repository :
+```
+git clone https://github.com/aircrack-ng/rtl8188eus.git
+cd rtl8188eus
+```
+
+* Install the driver :
+```
+make
+sudo make install
+```
+
+## Remove a driver
+
+* Display driver list :
+```
+lsmod
+```
+
+* Remove 88x2bu driver :
+```
+sudo modprob -r 88x2bu
+```
+
+## `aircrack-ng` - packet injection test
+
+* Install `aircrack-ng` package :
+```
+sudo apt install aircrack-ng
+```
+
+* Display wireless adapters :
+```
+sudo airmon-ng
+```
+
+* Kill services that uses wireless adapters :
+```
+sudo airmon-ng check kill
+```
+
+* Start monitor mode for `wlan0` adapter :
+```
+sudo airmon-ng start wlan0
+```
+
+* Send 4 deathentication packets :
+```
+aireplay-ng --deauth 4 -a XX:XX:XX:XX:XX:XX -c XX:XX:XX:XX:XX:XX wlan0
 ```
