@@ -42,6 +42,18 @@ sudo modprobe 88x2bu
 iwconfig
 ```
 
+## Remove a driver
+
+* Display driver list :
+```
+lsmod
+```
+
+* Remove 88x2bu driver :
+```
+sudo modprobe -r 88x2bu
+```
+
 ## Installation (aircrack-ng/rtl8188eus repository)
 
 * Clone the driver repository :
@@ -54,18 +66,7 @@ cd rtl8188eus
 ```
 make
 sudo make install
-```
-
-## Remove a driver
-
-* Display driver list :
-```
-lsmod
-```
-
-* Remove 88x2bu driver :
-```
-sudo modprob -r 88x2bu
+sudo modprobe 8188eu
 ```
 
 ## `aircrack-ng` - packet injection test
