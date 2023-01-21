@@ -31,7 +31,7 @@ sudo dkms install -m rtl88x2bu -v ${VER}
 sudo modprobe 88x2bu
 ```
 
-Note: On a Raspberry Pi board, you must specify `ARCH=arm64` :
+Note : On a Raspberry Pi board, you must specify `ARCH=arm64` :
 ```
 make ARCH=arm64 && sudo make install
 sudo modprobe 88x2bu
@@ -41,6 +41,7 @@ sudo modprobe 88x2bu
 ```
 iwconfig
 ```
+Note : The `RTL8812BU chipset **does not support monitor mode**.
 
 ## Remove a driver
 
